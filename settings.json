@@ -1,6 +1,6 @@
 {
     "bot-account":{ 
-        "username": "spawnbot",
+        "username": "RaidFarmBot",
         "password": "",
         "type": ""
     },
@@ -30,15 +30,14 @@
         },
 
         "chat-messages":{
-            "enabled": false,
-            "repeat": true,
+            "enabled": true,
+            "repeat": false,
             "repeat-delay": 60,
 
             "messages": [
-                "I'm a regular player ", 
-                "My owner is urFate_ ", 
-                "I want be alone ", 
-                "Visit my GitHub page! (urFate/Afk-Bot)"
+                "AFK Bot for RAID FARM",
+                "Type attack to start attacking" 
+                
             ]
         },
 
