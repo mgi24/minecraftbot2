@@ -79,14 +79,20 @@ function createBot () {
   })
 
   function attackEntity () {
+
     const entity = bot.nearestEntity()
     if (!entity) {
       bot.chat('No nearby entities')
     } else {
       bot.chat(`Attacking ${entity.name ?? entity.username}`)
-      bot.attack(entity)
+      setInterval(onehit, 1500);
+      
     }
   }
+
+  function onehit() {
+    bot.attack(entity)
+    }
 
 
 
