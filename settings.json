@@ -42,6 +42,6 @@
         },
 
         "chat-log": true,
-        "auto-reconnect": false
+        "auto-reconnect": true
     }
 }
