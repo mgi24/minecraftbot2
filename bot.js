@@ -72,31 +72,24 @@ function createBot () {
             bot.setControlState('sneak', true)
         }
       }
+
+      
       bot.on('chat', (username, message) => {
-        if (message === 'attack me') attackPlayer(username)
-        else if (message === 'attack') attackEntity()
+        
+        if (message === 'attack') attackEntity()
       })
   })
 
   function attackEntity () {
-
     const entity = bot.nearestEntity()
     if (!entity) {
       bot.chat('No nearby entities')
     } else {
       bot.chat(`Attacking ${entity.name ?? entity.username}`)
-      setInterval(onehit, 1500);
       
+      setInterval(function() {bot.attack(entity)}, 1500);
     }
   }
-
-  function onehit() {
-    bot.attack(entity)
-    }
-
-
-
-
 
   bot.on("chat", function(username, message){
       if(config.utils['chat-log']){
