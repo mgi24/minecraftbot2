@@ -77,6 +77,7 @@ function createBot () {
       bot.on('chat', (username, message) => {
         
         if (message === 'attack') attackEntity()
+        if (message === 'health') healthcheck()
       })
   })
 
@@ -89,6 +90,11 @@ function createBot () {
       
       setInterval(function() {bot.attack(entity)}, 1500);
     }
+  }
+  function healthcheck () {
+    bot.on('health', () => {
+      bot.chat(`I have ${bot.health} health and ${bot.food} food`)
+    })
   }
 
   bot.on("chat", function(username, message){
