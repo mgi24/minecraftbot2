@@ -77,10 +77,15 @@ function createBot () {
       bot.on('chat', (username, message) => {
         
         if (message === 'attack') attackEntity()
-        
+        if (message === 'health') healthcheck()
       })
   })
+  
+function healthcheck () {
+      
+        bot.chat(`I have ${bot.health} health and ${bot.food} food`)
 
+  }
   function attackEntity () {
     const entity = bot.nearestEntity()
     if (!entity) {
