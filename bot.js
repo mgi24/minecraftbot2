@@ -78,12 +78,19 @@ function createBot () {
         
         if (message === 'attack') attackEntity()
         if (message === 'health') healthcheck()
+        if (message === 'level') levelcheck()
       })
   })
   
 function healthcheck () {
       
         bot.chat(`I have ${bot.health} health and ${bot.food} food`)
+        
+  }
+  
+ function levelcheck () {
+      
+        bot.chat(`I am level ${bot.experience.level}`)
 
   }
   function attackEntity () {
