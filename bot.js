@@ -2,7 +2,7 @@ const mineflayer = require('mineflayer')
 const Movements = require('mineflayer-pathfinder').Movements
 const pathfinder = require('mineflayer-pathfinder').pathfinder
 const { GoalBlock} = require('mineflayer-pathfinder').goals
-
+var pi = 3.14159;
 const config = require('./settings.json');
 
 function createBot () {
@@ -80,6 +80,12 @@ function createBot () {
         if (message === 'health') healthcheck()
         if (message === 'level') levelcheck()
       })
+    
+    bot.on('time', function(time) {
+        var yaw = Math.random()*pi - (0.5*pi);
+        var pitch = Math.random()*pi - (0.5*pi);
+        bot.look(yaw,-90,false);
+});
   })
   
 function healthcheck () {
