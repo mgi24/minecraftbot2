@@ -80,6 +80,7 @@ function createBot () {
         if (message === 'attack') attackEntity()
         if (message === 'health') healthcheck()
         if (message === 'level') levelcheck()
+        if (message === 'quit') quitbot()
       })
     
     bot.on('time', function(time) {
