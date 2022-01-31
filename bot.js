@@ -3,6 +3,7 @@ const Movements = require('mineflayer-pathfinder').Movements
 const pathfinder = require('mineflayer-pathfinder').pathfinder
 const { GoalBlock} = require('mineflayer-pathfinder').goals
 var pi = 3.14159;
+var reconnect=0;
 const config = require('./settings.json');
 
 function createBot () {
@@ -88,6 +89,14 @@ function createBot () {
 });
   })
   
+  bot.on('entitySpawn', (entity) => {
+    if (entity.name === 'vex') {
+      bot.chat(`${entity.mobType} spawned at ${entity.position}, IM OUTTA HERE!!!`)
+      quitbot()
+    }
+    
+  })
+  
 function healthcheck () {
       
         bot.chat(`I have ${bot.health} health and ${bot.food} food`)
@@ -110,6 +119,11 @@ function healthcheck () {
     }
   }
   
+  function quitbot () {
+    bot.quit(`quitting`)
+    reconnect=1;
+  }
+  
 
   bot.on("chat", function(username, message){
       if(config.utils['chat-log']){
@@ -127,7 +141,9 @@ function healthcheck () {
 
   if(config.utils['auto-reconnect']){
       bot.on('end', function(){
-        createBot()
+          if (reconnect === 0){
+            createBot()
+          }
       })
   }
 
