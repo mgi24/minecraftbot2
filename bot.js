@@ -77,22 +77,28 @@ function createBot () {
       
       bot.on('chat', (username, message) => {
         
-        if (message === 'attack') attackEntity()
+        if (message === 'attack') startfarm()
         if (message === 'health') healthcheck()
         if (message === 'level') levelcheck()
         if (message === 'quit') quitbot()
+        if (message === 'look') lookatthis()
+        
+        
       })
     
-    bot.on('time', function(time) {
-        var yaw = Math.random()*pi - (0.5*pi);
-        var pitch = Math.random()*pi - (0.5*pi);
-        bot.look(yaw,-90,false);
-});
+      
   })
+  
+function lookatthis(){
+  bot.look(0,90,false);
+}
+
   
   bot.on('entitySpawn', (entity) => {
     if (entity.name === 'vex') {
+      console.log('ADA VEX');
       bot.chat(`${entity.mobType} spawned at ${entity.position}, IM OUTTA HERE!!!`)
+
       quitbot()
     }
     
@@ -109,14 +115,20 @@ function healthcheck () {
         bot.chat(`I am level ${bot.experience.level}`)
 
   }
+
+  function startfarm(){
+    bot.chat(`Attacking ${bot.nearestEntity()}`)
+    setInterval(attackEntity, 1500);
+  }
   function attackEntity () {
+    
     const entity = bot.nearestEntity()
     if (!entity) {
       bot.chat('No nearby entities')
     } else {
-      bot.chat(`Attacking ${entity.name ?? entity.username}`)
+      //bot.chat(`Attacking ${entity.name ?? entity.username}`)
       
-      setInterval(function() {bot.attack(entity)}, 1500);
+      bot.attack(entity);
     }
   }
   
