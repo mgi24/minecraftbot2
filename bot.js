@@ -90,7 +90,7 @@ function createBot () {
   })
   
 function lookatthis(){
-  bot.look(0,90,false);
+  bot.look(0,-1.5,false);
 }
 
   
