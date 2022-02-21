@@ -6,8 +6,8 @@
     },
 
     "server":{
-        "ip": "pcgimc.ploudos.me",
-        "port": ,
+        "ip": "Thomas.ploudos.com",
+        "port": 10247,
         "version": "1.18"
     },
 
