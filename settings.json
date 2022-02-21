@@ -6,8 +6,8 @@
     },
 
     "server":{
-        "ip": "milk.ploudos.com",
-        "port": 18091,
+        "ip": "pcgimc.ploudos.me",
+        "port": ,
         "version": "1.18"
     },
 
