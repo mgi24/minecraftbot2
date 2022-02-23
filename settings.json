@@ -6,8 +6,8 @@
     },
 
     "server":{
-        "ip": "mark.ploudos.com",
-        "port": 19592,
+        "ip": "null.ploudos.com",
+        "port": 10478,
         "version": "1.18"
     },
 
