@@ -6,8 +6,8 @@
     },
 
     "server":{
-        "ip": "bus.ploudos.com",
-        "port": 17193,
+        "ip": "math.ploudos.com",
+        "port": 11960,
         "version": "1.18"
     },
 
