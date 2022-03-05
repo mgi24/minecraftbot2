@@ -1,4 +1,7 @@
-# minecraftbot2
+# minecraftbot
+(NO FURTHER SUPPORT!!!)
+this bot already included in chatbotmc https://github.com/mgi24/chatbotmc
+
 this bot is for raid farm
 
 look = lookup
