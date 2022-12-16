@@ -147,7 +147,7 @@ function createBot() {
     if (arrmessage[0] == 'summon') {//arrmsg0=masage index start from 0
       botlist.push(arrmessage[1])
       bot.chat(`Bot List: ${botlist}`)
-      botbaru(arrmessage[1],'unknown'); //command for new bot
+      botbaru(arrmessage[1], 'unknown'); //command for new bot
 
     }
     //OTHER BOT ACTIVITY
@@ -155,7 +155,7 @@ function createBot() {
     let index = botlist.indexOf(arrmessage[0]);
     if (index != -1) {//force TP working
       if (arrmessage[1] == 'forcetp') { bot.chat(`/tp ${arrmessage[0]} ${arrmessage[2]}`) }
-      
+
 
     }
 
@@ -176,6 +176,15 @@ function createBot() {
 
   })
 
+  bot.on('entitySpawn', (entity) => {
+    if (entity.name === 'vex') {
+      console.log('ADA VEX');
+      bot.chat(`${entity.mobType} spawned at ${entity.position}, ADA VEX COEG BYEEE!!!`)
+
+      bot.quit('');
+    }
+
+  })
 
 
 
@@ -211,10 +220,10 @@ function botbaru(botname) {
     const arrmessage = message.split(" ");
     let index = botlist.indexOf(arrmessage[0]);
     if (index != -1) {
-      if(botname==arrmessage[0]){
-        if (arrmessage[1]=='quit'){
+      if (botname == arrmessage[0]) {
+        if (arrmessage[1] == 'quit') {
           bot.quit('')
-          botlist.splice(index,1)
+          botlist.splice(index, 1)
         }
         if (arrmessage[1] == 'attack') {
           let tipeattack = ''
@@ -231,7 +240,7 @@ function botbaru(botname) {
             bot.chat(`Attck ${tipeattack} selamanya`)
             Targeting(tipeattack, arrmessage[4]);
           }
-  
+
         }
 
 
@@ -262,7 +271,7 @@ function botbaru(botname) {
       }
     }
   }
-  
+
   function Targeting(tipemobs, delay) {
     let timing = delay;
     loop(timing);
@@ -300,10 +309,19 @@ function botbaru(botname) {
     bot.on('health', () => { console.log(`${bot.name} HP ${bot.health} Hunger ${bot.food} XP ${bot.experience.level}`) })
   };
 
+  bot.on('entitySpawn', (entity) => {
+    if (entity.name === 'vex') {
+      console.log('ADA VEX');
+      bot.chat(`${entity.mobType} spawned at ${entity.position}, ADA VEX COEG BYEEE!!!`)
 
-  
+      bot.quit('');
+    }
 
-  
+  })
+
+
+
+
 
 
 }
