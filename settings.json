@@ -1,14 +1,17 @@
 {
+    "quest":["Quest hari ini BIKIN RAID FARM, ELYTRA boleh make klo udah selesai langsung kembaliin! KOORDINAT BASE: -300 300; RAID FARM: -750 -550; SPAWNER XP FARM: -570 0; SLIME FARM: -600 300 SEED: 8358389860017679097"],
+
     "bot-account":{ 
-        "username": "Riders",
+        "username": "The_Server",
         "password": "",
         "type": ""
     },
 
+    
     "server":{
-        "ip": "math.ploudos.com",
-        "port": 11960,
-        "version": "1.18"
+        "ip": "vanillaanarchy.ddns.net",
+        "port": 25565,
+        "version": "1.18.2"
     },
 
     "position":{
@@ -35,9 +38,7 @@
             "repeat-delay": 60,
 
             "messages": [
-                "AFK Bot for RAID FARM",
-                "Type attack to start attacking" 
-                
+                "IM ONLINE BRUH!"
             ]
         },
 
