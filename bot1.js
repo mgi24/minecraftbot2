@@ -316,7 +316,7 @@ function botbaru(botname) {
     if (entity.name === 'vex') {
       console.log('ADA VEX');
       bot.chat(`${entity.mobType} spawned at ${entity.position}, ADA VEX COEG BYEEE!!!`)
-
+      botlist.splice(index, 1)
       bot.quit('');
     }
 
