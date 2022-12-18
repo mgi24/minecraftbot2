@@ -88,7 +88,7 @@ function createBot() {
 
   function healthcheck() {
 
-    bot.chat(`I have ${bot.health} health and ${bot.food} food`)
+    bot.chat(`I have ${bot.health} health ${bot.food} food and ${bot.experience.level} level XP`)
   }
 
 
@@ -113,7 +113,7 @@ function createBot() {
 
 
   //RECONNECT HARUSNYA CUMA ON DI BOT UTAMA DOANG
-  if (config.utils['auto-reconnect']) {
+  if (config.utils['auto-reconnect'] && reconnect==0) {
     bot.on('end', function () {
       createBot()
 
@@ -180,7 +180,7 @@ function createBot() {
     if (entity.name === 'vex') {
       console.log('ADA VEX');
       bot.chat(`${entity.mobType} spawned at ${entity.position}, ADA VEX COEG BYEEE!!!`)
-
+      reconnect=1;
       bot.quit('');
     }
 
@@ -218,8 +218,11 @@ function botbaru(botname) {
   bot.loadPlugin(autoeat)
   bot.on('chat', (username, message) => {
     const arrmessage = message.split(" ");
+    if (message=='health'){healthcheck()};
     let index = botlist.indexOf(arrmessage[0]);
     if (index != -1) {
+      
+      //specific bot
       if (botname == arrmessage[0]) {
         if (arrmessage[1] == 'quit') {
           bot.quit('')
@@ -318,6 +321,10 @@ function botbaru(botname) {
     }
 
   })
+  function healthcheck() {
+
+    bot.chat(`I have ${bot.health} health ${bot.food} food and ${bot.experience.level} level XP`)
+  }
 
 
 
