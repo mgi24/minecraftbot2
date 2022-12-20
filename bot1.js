@@ -283,6 +283,7 @@ function botbaru(botname) {
       let targetmobs = bot.nearestEntity(e => e.mobType == tipemobs && bot.entity.position.distanceTo(e.position) < 2)
       if (!targetmobs) {
         bot.chat(`${tipemobs}nya ilang boss! Izin off`)
+        let index = botlist.indexOf(botname);
         botlist.splice(index, 1)
         bot.quit('');
 
@@ -315,6 +316,7 @@ function botbaru(botname) {
   bot.on('entitySpawn', (entity) => {
     if (entity.name === 'vex') {
       console.log('ADA VEX');
+      let index = botlist.indexOf(botname);
       bot.chat(`${entity.mobType} spawned at ${entity.position}, ADA VEX COEG BYEEE!!!`)
       botlist.splice(index, 1)
       bot.quit('');
